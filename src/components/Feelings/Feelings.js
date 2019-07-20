@@ -35,7 +35,7 @@ this.setState({
                 <h1>How are you feeling today?</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label>Feeling:</label>
-                    <input type="text" value={this.state.newFeeling.feeling}
+                    <input type="number" min="1" max="5" value={this.state.newFeeling.feeling}
                         onChange={(event) => this.handleChangeFor('feeling', event)} />
                     <button onClick={this.handleSubmit}>Next....trying to dispatch</button>
                     <br />

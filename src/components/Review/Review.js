@@ -17,18 +17,25 @@ class Review extends Component {
 
 
         return (
-            <div>
+            <div className="review">
                 <header>
                     <h1>Review your Feedback</h1>
                     <p>{JSON.stringify(this.props.reduxStore.responseList)}</p>
 
                 </header>
-  <p>map state to props to get feedback review to display here</p>
+            <div>
                 {this.props.reduxStore.responseList.map((item, index) =>
-                    <p key={index}>{item.feeling}</p>
-
+                    <p key={index}>Feeling: {item.feeling}
+                    <br />
+                    Understanding:
+                    <br />
+                    Support:
+                    <br />
+                    Comments:
+                    </p>
+        
                 )}
-
+            </div>       
                 <button onClick={this.handleClick}>Submit Feedback</button>
             </div>
         )
