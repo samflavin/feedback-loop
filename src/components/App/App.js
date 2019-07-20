@@ -16,16 +16,15 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
-          <h6> We know where you live...</h6>
         </header>
         <Router>
-          <NextButton />
           <hr />
           <main className="App">
             <Route Feelings path="/feelings" component={Feelings} />
             <Route Understanding path="/understanding" component={Understanding} />
             <Route Support path="/support" component={Support} />
             <Route Comments path="/comments" component={Comments}/>
+            <NextButton />
             <Review />
 
            

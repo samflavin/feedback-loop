@@ -27,11 +27,11 @@ class Review extends Component {
                 {this.props.reduxStore.responseList.map((item, index) =>
                     <p key={index}>Feeling: {item.feeling}
                     <br />
-                    Understanding:
+                        Understanding:{item.understanding}
                     <br />
-                    Support:
+                        Support:{item.support}
                     <br />
-                    Comments:
+                        Comments:{item.comments}
                     </p>
         
                 )}
