@@ -19,9 +19,14 @@ class Comments extends Component {
         })
     }
 
+     myFunction =() =>{
+    document.getElementById("myBtn").disabled = false;
+}
+
     handleSubmit = () => {
         // Do javascript fun stuff?
         alert('Continuing to next page.');
+       
         this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.newFeeling });
         this.props.history.push('/review');
         // Then programmatically  nav back to home

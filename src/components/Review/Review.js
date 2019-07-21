@@ -6,7 +6,10 @@ class Review extends Component {
     //Created a local state to clear inputs after submitting
 state= {};
 
+
+
     handleClick = () => {
+      
        
         axios.post('/review', this.props.reduxStore.responseList)
                 .then(response => {
@@ -25,7 +28,7 @@ state= {};
 
 
     render() {
-
+        
 
         return (
             <div className="review">
@@ -45,7 +48,7 @@ state= {};
         
                 
             </div>       
-                <button onClick={this.handleClick}>Submit Feedback</button>
+                <button id="myBtn" onClick={this.handleClick}>Submit Feedback</button>
             </div>
         )
     }
