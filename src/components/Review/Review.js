@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class Review extends Component {
-
+    //Created a local state to clear inputs after submitting
+state= {};
 
     handleClick = () => {
-        // Do javascript fun stuff?
-        alert('Youre feedback has been submitted');
+       
+        axios.post('/review', this.props.reduxStore.responseList)
+                .then(response => {
+                   console.log(response);
+                   alert('Thankyou for your Feedback!')
+                   //clear inputs
+                    this.props.dispatch({ type: 'CLEAR', payload: this.state });
+                }).catch(err => {
+                    alert('Couldnt submit your feedback, try agin later', err)
 
-        // Then programmatically  nav back to home
-        // this.props.history.push('/feelings');
+                })
+
+       //send us back to start
+        this.props.history.push('/');
     }
 
 
@@ -20,21 +31,19 @@ class Review extends Component {
             <div className="review">
                 <header>
                     <h1>Review your Feedback</h1>
-                    <p>{JSON.stringify(this.props.reduxStore.responseList)}</p>
 
                 </header>
             <div>
-                {this.props.reduxStore.responseList.map((item, index) =>
-                    <p key={index}>Feeling: {item.feeling}
+                    <p>Feeling:{this.props.reduxStore.responseList.feeling}</p>
                     <br />
-                        Understanding:{item.understanding}
+                    <p>Understanding:{this.props.reduxStore.responseList.understanding}</p>
                     <br />
-                        Support:{item.support}
+                    <p>Support:{this.props.reduxStore.responseList.support}</p>
                     <br />
-                        Comments:{item.comments}
-                    </p>
+                    <p>Comments:{this.props.reduxStore.responseList.comments}</p>
+                    
         
-                )}
+                
             </div>       
                 <button onClick={this.handleClick}>Submit Feedback</button>
             </div>

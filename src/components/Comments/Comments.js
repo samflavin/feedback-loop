@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Review from '../Review/Review';
 
 class Comments extends Component {
 
@@ -20,9 +21,9 @@ class Comments extends Component {
 
     handleSubmit = () => {
         // Do javascript fun stuff?
-        alert('continuing to next page');
-        this.props.dispatch({ type: 'ADD_NEWFEELING', payload: this.state.newFeeling });
-
+        alert('Continuing to next page.');
+        this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.newFeeling });
+        this.props.history.push('/review');
         // Then programmatically  nav back to home
         // this.props.history.push('/understanding');
     }
@@ -32,7 +33,7 @@ class Comments extends Component {
         alert('Going back to the home page okayyyyy....');
 
         // Then programmatically  nav back to home
-        this.props.history.push('/understanding');
+        this.props.history.push('/review');
     }
     render() {
         return (
@@ -43,9 +44,10 @@ class Comments extends Component {
                     <label>Comments</label>
                     <input type="text" value={this.state.newFeeling.comments}
                         onChange={(event) => this.handleChangeFor('comments', event)} />
-                    <button onClick={this.handleSubmit}>Next....trying to dispatch</button>
+                    <button>Next</button>
                     <br />
                 </form>
+                <Review />  
             </div>
         )
     }

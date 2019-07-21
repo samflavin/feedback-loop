@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import NextButton from '../NextButton/NextButton';
+//import NextButton from '../NextButton/NextButton';
 import Feelings from '../Feelings/Feelings'
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments'
@@ -20,12 +20,13 @@ class App extends Component {
         <Router>
           <hr />
           <main className="App">
-            <Route Feelings path="/feelings" component={Feelings} />
+            <Route Feelings path="/" exact component={Feelings} />
             <Route Understanding path="/understanding" component={Understanding} />
             <Route Support path="/support" component={Support} />
             <Route Comments path="/comments" component={Comments}/>
-            <NextButton />
-            <Review />
+            <Route Comments path="/review" component={Review}/>
+
+           
 
            
 

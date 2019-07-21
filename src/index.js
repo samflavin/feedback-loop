@@ -7,10 +7,22 @@ import logger from 'redux-logger';
 
 
 
-const responseList = (state = [], action) => {
+const responseList = (state = {}, action) => {
+
     if (action.type === `ADD_NEWFEELING`) {
         // MUST return a new array, don't push...
-        return [...state, action.payload]
+        return {...state, feeling: action.payload.feeling}
+    } if (action.type === 'ADD_UNDERSTANDING') {
+        return { ...state, understanding: action.payload.understanding };
+    }
+    if (action.type === 'ADD_SUPPORT') {
+        return { ...state, support: action.payload.support };
+    }
+    if (action.type === 'ADD_COMMENTS') {
+        return { ...state, comments: action.payload.comments };
+    }
+    if (action.type === 'CLEAR') {
+        return action.payload;
     }
     return state;
 }
