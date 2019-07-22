@@ -19,9 +19,6 @@ class Comments extends Component {
         })
     }
 
-     myFunction =() =>{
-    document.getElementById("myBtn").disabled = false;
-}
 
     handleSubmit = () => {
         // Do javascript fun stuff?

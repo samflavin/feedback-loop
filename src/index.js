@@ -7,7 +7,7 @@ import logger from 'redux-logger';
 
 
 
-const responseList = (state = {}, action) => {
+const responseList = (state = {comments:''}, action) => {
 
     if (action.type === `ADD_NEWFEELING`) {
         // MUST return a new array, don't push...

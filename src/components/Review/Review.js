@@ -28,7 +28,7 @@ state= {};
 
 
     render() {
-        
+        if (this.props.reduxStore.responseList.comments === ''){
 
         return (
             <div className="review">
@@ -48,9 +48,39 @@ state= {};
         
                 
             </div>       
-                <button id="myBtn" onClick={this.handleClick}>Submit Feedback</button>
+                <button id="myBtn" disabled="true" onClick={this.handleClick}>Submit Feedback</button>
             </div>
         )
+        }
+        else {
+
+            return (
+                <div className="review">
+                    <header>
+                        <h1>Review your Feedback</h1>
+
+                    </header>
+                    <div>
+                        <p>Feeling:{this.props.reduxStore.responseList.feeling}</p>
+                        <br />
+                        <p>Understanding:{this.props.reduxStore.responseList.understanding}</p>
+                        <br />
+                        <p>Support:{this.props.reduxStore.responseList.support}</p>
+                        <br />
+                        <p>Comments:{this.props.reduxStore.responseList.comments}</p>
+
+
+
+                    </div>
+                    <button id="myBtn" onClick={this.handleClick}>Submit Feedback</button>
+                </div>
+            )
+
+
+
+
+
+        }
     }
 
 }
